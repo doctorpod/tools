@@ -1,3 +1,9 @@
+# Given a tray of salad takes a certain amount of time to grow to harvesting size
+# depending on temperature, when should you sow to harvest a tray every week
+# throughout the year?
+require 'date'
+
+# Raw temp data for Kent
 raw = 'January	7.90	2.31	7.97	59.07	64.37	11.58	–
 February	8.37	2.22	7.92	81.11	49.99	9.48	–
 March	10.99	3.58	4.36	123.17	39.24	7.43	–
@@ -53,5 +59,5 @@ required_week_degrees = 30 # Assuming 4 weeks at 15 (15-7.5 x 4)
 end
 
 week_averages.each_with_index do |week, i|
-  puts "#{i}: sow for weeks: #{sowings[i]}"
+  puts "#{Date.strptime("2024-#{i+1}", '%Y-%W')}: sow for weeks: #{sowings[i]}"
 end
